@@ -24,6 +24,9 @@ app.use('/restaurants', routes.restaurants);
 // AUTH ROUTES
 app.use('/user', routes.auth);
 
+// PROFILE ROUTES 
+app.use('/profiles', routes.user);
+
 // CONNECTION
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
