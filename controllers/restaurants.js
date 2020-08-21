@@ -32,7 +32,7 @@ const update = (req, res) => {
             res.status(400).json({message: `Could not update ${req.params.id}`})
         }
 
-        res.json(foundRestaurant);
+        res.json(updatedRestaurant);
     })
 }
 
