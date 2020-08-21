@@ -17,7 +17,7 @@ const show = (req, res) => {
 }
 
 const create = (req, res) => {
-    db.Restaurant.create(req.params.body, (err, newRestaurant) => {
+    db.Restaurant.create(req.body, (err, newRestaurant) => {
         if(err) console.log('Error in create', err);
 
         res.status(200).json(newRestaurant);
