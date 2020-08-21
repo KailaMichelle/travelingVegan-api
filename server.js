@@ -1,7 +1,7 @@
 // IMPORTS
 const express = require ('express');
 const cors = require('cors');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const routes = require('./routes');
@@ -18,17 +18,11 @@ app.use(cors({
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-
-// ROUTES
-// app.get('/', (req, res) => {
-//     res.send('Backend Connected');
-// })
-
 // RESTAURANT ROUTES
 app.use('/restaurants', routes.restaurants);
 
 // AUTH ROUTES
-// app.use('/user', routes.auth);
+app.use('/user', routes.auth);
 
 // CONNECTION
 app.listen(PORT, () => {
