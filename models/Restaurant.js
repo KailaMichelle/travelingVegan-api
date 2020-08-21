@@ -6,10 +6,10 @@ const RestaurantSchema = new Schema({
     location: String,
     fullyVegan: Boolean,
     image: String,
-    // createdAt: {
-    //     type: Date,
-    //     default: Date.now,
-    // }
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    }
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
