@@ -9,7 +9,7 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    db.Restaurant.findById({}, (err, foundRestaurant) => {
+    db.Restaurant.findById(req.params.id, (err, foundRestaurant) => {
         if(err) console.log('Error in show', err);
 
         res.status(200).json(foundRestaurant);
