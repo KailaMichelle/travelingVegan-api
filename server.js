@@ -24,7 +24,7 @@ app.use(express.json());
 // })
 
 // RESTAURANT ROUTES
-app.use('/restaurant', routes.restaurants);
+app.use('/restaurants', routes.restaurants);
 
 // AUTH ROUTES
 // app.use('/user', routes.auth);
