@@ -5,10 +5,11 @@ const RestaurantSchema = new Schema({
     name: String,
     location: String,
     fullyVegan: Boolean,
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    }
+    image: String,
+    // createdAt: {
+    //     type: Date,
+    //     default: Date.now,
+    // }
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);

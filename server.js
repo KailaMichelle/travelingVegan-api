@@ -19,9 +19,9 @@ app.use(express.json());
 
 
 // ROUTES
-app.get('/', (req, res) => {
-    res.send('Backend Connected');
-})
+// app.get('/', (req, res) => {
+//     res.send('Backend Connected');
+// })
 
 // RESTAURANT ROUTES
 app.use('/restaurant', routes.restaurants);
