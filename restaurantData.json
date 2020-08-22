@@ -1,0 +1,55 @@
+{
+    "restaurants": [
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        },
+        {
+            "name": "Pura Vita",
+            "location": "Los Angeles",
+            "image": "https://picsum.photos/200",
+            "fullyVegan": true
+        }
+    ]
+}
+
+
+

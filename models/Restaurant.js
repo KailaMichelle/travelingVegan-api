@@ -5,6 +5,7 @@ const RestaurantSchema = new Schema({
     name: String,
     location: String,
     fullyVegan: Boolean,
+    image: String,
     createdAt: {
         type: Date,
         default: Date.now,
