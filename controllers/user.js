@@ -8,13 +8,13 @@ const index = (req, res) => {
     })
 }
 
-// const show = (req, res) => {
-//     db.User.findById(req.params.id, (err, foundUser) => {
-//         if(err) console.log('Error in show', err);
+const show = (req, res) => {
+    db.User.findById(req.params.id, (err, foundUser) => {
+        if(err) console.log('Error in show', err);
 
-//         res.status(200).json(foundUser);
-//     })
-// }
+        res.status(200).json(foundUser);
+    })
+}
 
 // const update = (req, res) => {
 //     db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
@@ -38,7 +38,7 @@ const index = (req, res) => {
 
 module.exports ={
     index, 
-    // show, 
+    show, 
     // update,
     // destroy
 }

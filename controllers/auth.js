@@ -18,6 +18,7 @@ const signup = async (req, res) => {
 
     try {
         const foundUser = await db.User.findOne({ email: req.body.email });
+
         if(foundUser){
             res.status(400).json({
                 status: 400,
@@ -29,14 +30,15 @@ const signup = async (req, res) => {
         const hash = await bcrypt.hash(req.body.password, salt);
         await db.User.create({ ...req.body, password: hash });
         
-        const payload = {id: foundUser._id};
+        const currentUser = await db.User.findOne({email: req.body.email})
+        // console.log(currentUser);
+        const payload = {id: currentUser._id};
         const secret = process.env.JWT_SECRET;
         const expiration = {expiresIn: '1h'};
+
         const token = await jwt.sign(payload, secret, expiration);
         res.status(200).json({token});
 
-        return res.status(201).json({status: 201, message: 'successfully logged in user'});
-        
     } catch (error) {
         console.log(error);
         return res.status(500).json({
