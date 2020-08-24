@@ -19,9 +19,12 @@ const show = (req, res) => {
 const create = (req, res) => {
     db.Restaurant.create(req.body, (err, newRestaurant) => {
         if(err) console.log('Error in create', err);
-
+    db.User.findById(req.body.userId, (err, foundUser) => {
+        foundUser.restaurants.push(newRestaurant);
+        foundUser.save((err, savedUser) => {
+            console.log('savedUser: ', savedUser);
+        });
         res.status(200).json(newRestaurant);
-    })
 }
 
 const update = (req, res) => {
