@@ -44,10 +44,19 @@ const update = (req, res) => {
 }
 
 const destroy = (req, res) => {
-    db.Restaurant.findByIdAndDelete(req.params.id, (err, deletedRestaurant) => {
-        if(err) console.log('Error in delete', err);
-
-        res.status(200).json(deletedRestaurant);
+    db.User.findById(req.currentUser, (err, foundUser) => {
+        console.log(req.currentUser)
+        if(foundUser.restaurants.includes(req.params.id)){
+            console.log('Deleting restaurant')
+            db.Restaurant.findByIdAndDelete(req.params.id, (err, deletedRestaurant) => {
+                if(err) console.log('Error in delete', err);
+        
+                res.status(200).json(deletedRestaurant);
+            })
+        } else {
+            console.log('delete error')
+            res.status(401).json({message: 'Not Authorized'});
+        }
     })
 }
 
