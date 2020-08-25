@@ -9,24 +9,24 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    db.User.findById(req.params.id, (err, foundUser) => {
-        if(err) console.log('Error in show', err);
-
-        res.status(200).json(foundUser);
+    // db.User.findById(req.params.id, (err, foundUser) => {
+        // if(err) console.log('Error in show', err);
+    db.User.findById(req.params.id).populate({path: 'restaurants'}).exec((err, foundUser) => {
+        if (err) return console.log(err);
+    res.status(200).json(foundUser);
     })
 }
 
-// const update = (req, res) => {
-//     db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
-//         if(err) console.log('Error in update', err);
+const update = (req, res) => { 
+    db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
+        if(err) console.log('Error in update', err);
+        if (!updatedUser){
+            res.status(400).json({message: `Could not update ${req.params.id}`})
+        }
 
-//         if (!updatedUser){
-//             res.status(400).json({message: `Could not update ${req.params.id}`})
-//         }
-
-//         res.json(updatedUser);
-//     })
-// }
+        res.json(updatedUser);
+    })
+}
 
 // const destroy = (req, res) => {
 //     db.User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
@@ -39,7 +39,7 @@ const show = (req, res) => {
 module.exports ={
     index, 
     show, 
-    // update,
+    update,
     // destroy
 }
 

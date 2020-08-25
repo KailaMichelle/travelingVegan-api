@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./User');
 
 const RestaurantSchema = new Schema({
     name: String,
@@ -9,7 +10,7 @@ const RestaurantSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-    }
+    },
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);

@@ -5,7 +5,7 @@ const ctrl = require('../controllers');
 // ROUTES
 router.get('/', ctrl.user.index);
 router.get('/:id', ctrl.user.show);
-// router.put('/:id', authRequired, ctrl.user.update);
+router.put('/:id', ctrl.user.update);
 // router.delete('/:id', authRequired, ctrl.user.destroy);
 
 module.exports = router;
