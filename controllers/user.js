@@ -9,7 +9,7 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    db.User.findById(req.params.id).populate({path: 'restaurants'}).exec((err, foundUser) => {
+    db.User.findById(req.params.id).populate({path: 'restaurants'}).populate({path: 'favoriteRestaurants'}).exec((err, foundUser) => {
         if (err) return console.log(err);
     res.status(200).json(foundUser);
     })
