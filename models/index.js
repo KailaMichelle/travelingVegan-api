@@ -17,5 +17,5 @@ mongoose.connect(connectionString, {
 module.exports = {
     User: require('./User'),
     Restaurant: require('./Restaurant'),
-    // FavoriteList: require('./FavoriteList'),
+    Like: require('./Like'),
 }

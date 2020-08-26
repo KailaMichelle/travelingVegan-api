@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Restaurant = require('./Restaurant');
-const FavoriteList = require('./FavoriteList');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -22,10 +21,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Restaurant'
     }],
-    // favoriteRestaurants: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Restaurant'
-    // }],
+    favoriteRestaurants: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Restaurant'
+    }],
     createdAt: {
         type: Date, 
         default: Date.now,

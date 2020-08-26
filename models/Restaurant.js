@@ -11,6 +11,7 @@ const RestaurantSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    likes: Number,
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);

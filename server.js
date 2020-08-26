@@ -28,7 +28,7 @@ app.use('/user', routes.auth);
 app.use('/profiles', routes.user);
 
 // FAVORITE ROUTES
-// app.use('/favorite', routes.favorites);
+// app.use('/favorites', routes.favorites);
 
 // CONNECTION
 app.listen(PORT, () => {

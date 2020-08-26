@@ -3,9 +3,9 @@
 // // const authRequired = require('../middleware/authRequired');
 
 // // ROUTES
-// router.get('/', ctrl.favorites.index);
+// router.get('/', ctrl.favorite.index);
 // // router.get('/:id', ctrl.favorites.show);
-// router.post('/', ctrl.favorites.create);
+// router.post('/', ctrl.favorite.create);
 // // router.put('/:id', authRequired, ctrl.favorites.update);
 // // router.delete('/:id', authRequired, ctrl.favorites.destroy);
 
