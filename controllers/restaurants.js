@@ -32,25 +32,33 @@ const create = (req, res) => {
 }
 
 const update = (req, res) => {
-    db.Restaurant.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedRestaurant) => {
-        if(err) console.log('Error in update', err);
-
-        if (!updatedRestaurant){
-            res.status(400).json({message: `Could not update ${req.params.id}`})
-        }
-
-        res.json(updatedRestaurant);
-    })
-}
+    console.log('update route reached')
+    db.User.findById(req.currentUser, (err, foundUser) => {
+        console.log(req.currentUser)
+        if(foundUser.restaurants.includes(req.params.id)){
+            console.log('Updating restaurant')
+            db.Restaurant.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedRestaurant) => {
+                if(err) console.log('Error in update', err);
+                    res.status(200).json(updatedRestaurant);
+                })
+            } else {
+                console.log('update error')
+                res.status(401).json({message: 'Not Authorized'});
+            }
+        })
+    }
 
 const destroy = (req, res) => {
     db.User.findById(req.currentUser, (err, foundUser) => {
         console.log(req.currentUser)
         if(foundUser.restaurants.includes(req.params.id)){
+            foundUser.restaurants.remove(req.params.id);
+            foundUser.save((err, updatedUser) => {
+                console.log('updated user=', updatedUser)
+            })
             console.log('Deleting restaurant')
             db.Restaurant.findByIdAndDelete(req.params.id, (err, deletedRestaurant) => {
                 if(err) console.log('Error in delete', err);
-        
                 res.status(200).json(deletedRestaurant);
             })
         } else {
