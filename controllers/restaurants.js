@@ -55,7 +55,7 @@ const update = (req, res) => {
 
 const destroy = (req, res) => {
     db.User.findById(req.currentUser, (err, foundUser) => {
-        console.log(req.currentUser)
+        console.log('imin' , req.currentUser)
         if(foundUser.restaurants.includes(req.params.id)){
             foundUser.restaurants.remove(req.params.id);
             foundUser.save((err, updatedUser) => {

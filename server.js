@@ -27,9 +27,6 @@ app.use('/user', routes.auth);
 // PROFILE ROUTES 
 app.use('/profiles', routes.user);
 
-// FAVORITE ROUTES
-// app.use('/favorites', routes.favorites);
-
 // CONNECTION
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

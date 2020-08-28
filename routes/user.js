@@ -5,7 +5,6 @@ const authRequired = require('../middleware/authRequired');
 // ROUTES
 router.get('/', ctrl.user.index);
 router.get('/:id', ctrl.user.show);
-// router.get('/:id/list', ctrl.user.findList);
 router.put('/:id/favorite', ctrl.user.updateFavorite);
 router.delete('/:id/removefavorite', ctrl.user.removeFavorite);
 

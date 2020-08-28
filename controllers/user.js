@@ -58,28 +58,9 @@ const removeFavorite = (req, res) => {
     })
 }
 
-// const findList = async (req, res) => {
-//     try {
-//         const foundFavorite = await db.User.findOne({ favoriteRestaurants: req.body.favoriteRestaurants });
-        
-//         if(foundFavorite){
-//             res.status(400).json({class: true});
-//         } else {
-//             res.status(400).json({class: true}); 
-//         }
-
-//     } catch (err) {
-//         console.log(err);
-//         return res.status(500).json({
-//             status: 500,
-//             message: 'Something went wrong findling list',
-//         });
-// }}
-
 module.exports ={
     index, 
     show, 
     updateFavorite,
     removeFavorite,
-    // findList
 }
