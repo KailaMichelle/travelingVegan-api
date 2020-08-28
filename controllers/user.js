@@ -8,39 +8,59 @@ const index = (req, res) => {
     })
 }
 
-// const show = (req, res) => {
-//     db.User.findById(req.params.id, (err, foundUser) => {
-//         if(err) console.log('Error in show', err);
+const show = (req, res) => {
+    db.User.findById(req.params.id).populate({path: 'restaurants'}).populate({path: 'favoriteRestaurants'}).exec((err, foundUser) => {
+        if (err) return console.log(err);
+    res.status(200).json(foundUser);
+    })
+}
 
-//         res.status(200).json(foundUser);
-//     })
-// }
+const updateFavorite = async (req, res) => { 
+    try {
+        const foundFavorite = await db.User.findOne({ favoriteRestaurants: req.body.favoriteRestaurants });
+        
+        if(foundFavorite){
+            res.status(400).json({
+                status: 400, 
+                message: 'Already added favorite'
+            });
+        } else {
+            db.User.findById(req.params.id, (err, foundUser) => {
+                console.log(foundUser)
+                    foundUser.favoriteRestaurants.push(req.body.favoriteRestaurants);
+                    foundUser.save((err, savedUser) => {
+                        console.log('savedUser: ', savedUser, 'updated favorites list');
+                    })
+            })
+        }
 
-// const update = (req, res) => {
-//     db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
-//         if(err) console.log('Error in update', err);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, try again',
+        });
+}}
 
-//         if (!updatedUser){
-//             res.status(400).json({message: `Could not update ${req.params.id}`})
-//         }
-
-//         res.json(updatedUser);
-//     })
-// }
-
-// const destroy = (req, res) => {
-//     db.User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
-//         if(err) console.log('Error in delete', err);
-
-//         res.status(200).json(deletedUser);
-//     })
-// }
+const removeFavorite = (req, res) => {
+    db.User.findById(req.params.id, (err, foundUser) => {
+        console.log(req.params.id)
+        if(foundUser.favoriteRestaurants.includes(req.body.favoriteRestaurants)){
+            foundUser.favoriteRestaurants.remove(req.body.favoriteRestaurants);
+            foundUser.save((err, updatedUser) => {
+                console.log('updated user=', updatedUser)
+            })
+            console.log('Deleting favorite')
+        } else {
+            console.log('remove error')
+            res.status(401).json({message: 'You already removed item from your favorites.'});
+        }
+    })
+}
 
 module.exports ={
     index, 
-    // show, 
-    // update,
-    // destroy
+    show, 
+    updateFavorite,
+    removeFavorite,
 }
-
-

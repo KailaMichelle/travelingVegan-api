@@ -29,7 +29,16 @@ const signup = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password, salt);
         await db.User.create({ ...req.body, password: hash });
-        return res.status(201).json({status: 201, message: 'successfully created user'});
+        
+        const currentUser = await db.User.findOne({email: req.body.email})
+        // console.log(currentUser);
+        const payload = {id: currentUser._id};
+        const secret = process.env.JWT_SECRET;
+        const expiration = {expiresIn: '1h'};
+
+        const token = await jwt.sign(payload, secret, expiration);
+        res.status(200).json({token});
+
     } catch (error) {
         console.log(error);
         return res.status(500).json({

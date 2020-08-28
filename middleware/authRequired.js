@@ -12,7 +12,7 @@ const authRequired = (req, res, next) => {
             });
         }
 
-        req.currentUser = decodedUser;
+        req.currentUser = decodedUser.id;
         next();
 });
 }
