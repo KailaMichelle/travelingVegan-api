@@ -3,49 +3,57 @@
         {
             "name": "Pura Vita",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
+            "image": "https://res.cloudinary.com/fittco/image/upload/w_720,f_auto/c6obxzpdlvlsmbm6uqqx.jpg",
+            "website": "https://puravitalosangeles.com/",
             "fullyVegan": true
         },
         {
-            "name": "Pura Vita",
+            "name": "Sage Vegan Bistro",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
+            "image": "https://images.squarespace-cdn.com/content/v1/5b1c4c048f51301ee7df3398/1551657944979-OFV33LWECPFHH5V3NN02/ke17ZwdGBToddI8pDm48kO5sLLK1yOL6FaeWXiUmGcx7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTm1v6GcKqh6mrhfxzW2tqo76N6uwtR5szQSU-cvbwbV9SvlQfipohWVeoOZIE2jcL3/13065411385974868717.jpg?format=2500w",
+            "website": "https://www.sageveganbistro.com/",
             "fullyVegan": true
         },
         {
-            "name": "Pura Vita",
+            "name": "Donut Friend",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
+            "image": "https://pbs.twimg.com/media/DgJxAhJU0AACRsL.jpg",
+            "website": "https://donutfriend.com/",
             "fullyVegan": true
         },
         {
-            "name": "Pura Vita",
+            "name": "M Cafe",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
+            "image": "https://pbs.twimg.com/media/C1GQvBhWIAAzswc.jpg",
+            "website": "https://mcafedechaya.com/",
+            "fullyVegan": false
+        },
+        {
+            "name": "Mohawk Bend",
+            "location": "Los Angeles",
+            "image": "https://pbs.twimg.com/media/DLPUcy9U8AA8Bxr.jpg",
+            "website": "https://www.mohawk.la/",
+            "fullyVegan": false
+        },
+        {
+            "name": "Plant Food & Wine",
+            "location": "Los Angeles",
+            "image": "https://www.matthewkenneycuisine.com/media/2020_06_29_1855_LEMON%20VERBENA%20_%20STRAWBERRY%20SHORTCAKE(3).jpg",
+            "website": "https://www.matthewkenneycuisine.com/plant-food-wine-venice",
             "fullyVegan": true
         },
         {
-            "name": "Pura Vita",
+            "name": "The Butchers Daughter",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
-            "fullyVegan": true
+            "image": "https://www.wearedore.com/wp-content/uploads/2017/02/the_butchers_daughter_garance_dore_9.jpg",
+            "website": "https://www.thebutchersdaughter.com/la/",
+            "fullyVegan": false
         },
         {
-            "name": "Pura Vita",
+            "name": "Avocadamama",
             "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
-            "fullyVegan": true
-        },
-        {
-            "name": "Pura Vita",
-            "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
-            "fullyVegan": true
-        },
-        {
-            "name": "Pura Vita",
-            "location": "Los Angeles",
-            "image": "https://picsum.photos/200",
+            "image": "https://assets.website-files.com/58fa88476a6c5b7647f1f4fb/5ed09f2467f0ba77ae1bc94a_buffalo.jpg",
+            "website": "https://avocadamama.com/",
             "fullyVegan": true
         }
     ]

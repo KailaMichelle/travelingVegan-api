@@ -53,16 +53,33 @@ const removeFavorite = (req, res) => {
             console.log('Deleting favorite')
         } else {
             console.log('remove error')
-            res.status(401).json({message: 'Not Authorized'});
+            res.status(401).json({message: 'You already removed item from your favorites.'});
         }
     })
 }
+
+// const findList = async (req, res) => {
+//     try {
+//         const foundFavorite = await db.User.findOne({ favoriteRestaurants: req.body.favoriteRestaurants });
+        
+//         if(foundFavorite){
+//             res.status(400).json({class: true});
+//         } else {
+//             res.status(400).json({class: true}); 
+//         }
+
+//     } catch (err) {
+//         console.log(err);
+//         return res.status(500).json({
+//             status: 500,
+//             message: 'Something went wrong findling list',
+//         });
+// }}
 
 module.exports ={
     index, 
     show, 
     updateFavorite,
     removeFavorite,
+    // findList
 }
-
-

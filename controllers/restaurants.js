@@ -21,13 +21,18 @@ const create = (req, res) => {
         if(err) console.log('Error in create', err);
         console.log('newRestaurant')
     db.User.findById(req.currentUser, (err, foundUser) => {
-        console.log(err);
-        foundUser.restaurants.push(newRestaurant);
-        foundUser.save((err, savedUser) => {
-            console.log('savedUser: ', savedUser);
+        if(err){
+            res.status(401).json({message: 'Not Authorized. Please Login to Continue'});
+            console.log(err);
+        } else {
+            foundUser.restaurants.push(newRestaurant);
+            foundUser.save((err, savedUser) => {
+                console.log('savedUser: ', savedUser);
+            })
+            res.status(200).json(newRestaurant);
+            }
         })
-        res.status(200).json(newRestaurant);
-        })
+
     })
 }
 
@@ -43,7 +48,7 @@ const update = (req, res) => {
                 })
             } else {
                 console.log('update error')
-                res.status(401).json({message: 'Not Authorized'});
+                res.status(401).json({message: 'Not Authorized. Please Login to Continue'});
             }
         })
     }
@@ -63,7 +68,7 @@ const destroy = (req, res) => {
             })
         } else {
             console.log('delete error')
-            res.status(401).json({message: 'Not Authorized'});
+            res.status(401).json({message: 'Not Authorized. Please Login to Continue'});
         }
     })
 }

@@ -3,15 +3,18 @@ const Schema = mongoose.Schema;
 const User = require('./User');
 
 const RestaurantSchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+    },
     location: String,
     fullyVegan: Boolean,
     image: String,
+    website: String,
     createdAt: {
         type: Date,
         default: Date.now,
     },
-    likes: Number,
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
