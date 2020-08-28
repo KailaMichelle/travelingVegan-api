@@ -11,6 +11,7 @@ const RestaurantSchema = new Schema({
     fullyVegan: Boolean,
     image: String,
     website: String,
+    description: String,
     createdAt: {
         type: Date,
         default: Date.now,
